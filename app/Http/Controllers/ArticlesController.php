@@ -15,6 +15,12 @@ use Auth;
 
 class ArticlesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth'); // Trigger authenticate middleware
+    }
+
     public function index()
     {
     	$articles = Article::latest('published_at')->published()->get();
@@ -42,6 +48,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
+
     	return view ('articles.create');
     }
 
