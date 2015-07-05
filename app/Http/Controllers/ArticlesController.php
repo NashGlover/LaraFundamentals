@@ -18,7 +18,7 @@ class ArticlesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth'); // Trigger authenticate middleware
+        $this->middleware('auth', ['only' => 'create']); // Trigger authenticate middleware
     }
 
     public function index()

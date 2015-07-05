@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('about', 'PagesController@about');
+// Authenitcate on a per route basis
+Route::get('about', ['middleware' => 'auth', 'uses' => 'PagesController@about']);
 
 Route::get('contact', 'PagesController@contact');
 
