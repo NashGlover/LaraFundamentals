@@ -31,6 +31,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('foo', ['middleware' => 'manager', function()
+{
+	return 'This page may only be viewed by managers.';
+}]);
 /*// Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
